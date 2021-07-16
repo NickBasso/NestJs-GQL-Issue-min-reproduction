@@ -1,8 +1,8 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { WidgetAccess } from './widgetAccess/widgetAccess';
 
-@InputType()
-export class BaseCreateWidgetInput {
+@ObjectType('BaseWidget')
+export class WidgetType {
   @Field((type) => WidgetAccess, { nullable: true })
   access: WidgetAccess;
 

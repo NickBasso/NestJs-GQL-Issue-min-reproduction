@@ -1,18 +1,18 @@
 import { Mutation, Query, Resolver } from '@nestjs/graphql';
-import { BaseWidgetType } from './baseWidget.type';
+import { WidgetType } from './widget.type';
 import { WidgetService } from './widget.service';
 
-@Resolver((of) => BaseWidgetType)
+@Resolver((of) => WidgetType)
 export class WidgetResolver {
   constructor(protected WidgetService: WidgetService) {
   }
 
-  @Query((returns) => [BaseWidgetType])
+  @Query((returns) => [WidgetType])
   all() {
     return this.WidgetService.getAll();
   }
 
-  @Mutation((returns) => BaseWidgetType)
+  @Mutation((returns) => WidgetType)
   createWidget() {
     return this.WidgetService.createWidget();
   }
